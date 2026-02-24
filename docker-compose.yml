@@ -1,0 +1,18 @@
+version: '3.8'
+
+services:
+  angular-app:
+    image: landingpagehenry
+    
+    build:
+      context: .
+      dockerfile: dockerfile.dev
+    container_name: landingpagehenry-container
+    
+    ports:
+      - "4200:4200"
+    
+    volumes:
+      - .:/app
+      - /app/node_modules
+    command: npm run start

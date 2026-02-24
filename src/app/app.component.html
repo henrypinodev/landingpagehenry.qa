@@ -1,0 +1,199 @@
+<!-- ========== HEADER/NAV ========== -->
+<header class="header">
+  <nav class="nav container">
+    <a href="#hero" class="nav-logo" (click)="scrollToSection('#hero')">
+      <span class="logo-text">{{ name.split(' ')[0] }}</span>
+      <span class="logo-dot">.</span>
+    </a>
+
+    <button class="nav-toggle" (click)="toggleMobileMenu()" [class.active]="mobileMenuOpen" aria-label="Toggle menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+    <ul class="nav-menu" [class.active]="mobileMenuOpen">
+      @for (link of navLinks; track link.href) {
+      <li>
+        <a class="nav-link" [href]="link.href" (click)="scrollToSection(link.href)">
+          {{ link.label }}
+        </a>
+      </li>
+      }
+    </ul>
+  </nav>
+</header>
+
+<!-- ========== HERO SECTION ========== -->
+<section id="hero" class="hero">
+  <div class="hero-bg">
+    <div class="hero-gradient"></div>
+    <div class="hero-grid"></div>
+  </div>
+
+  <div class="container hero-content">
+    <div class="hero-text">
+      <p class="hero-greeting animate-fade-in">¡Hola! Soy</p>
+      <h1 class="hero-name animate-fade-in">{{ name }}</h1>
+      <h2 class="hero-title animate-fade-in">{{ title }}</h2>
+      <p class="hero-subtitle animate-fade-in">{{ subtitle }}</p>
+
+      <div class="hero-cta animate-fade-in">
+        <a href="#portfolio" class="btn btn-primary" (click)="scrollToSection('#portfolio')">
+          <span>Ver Proyectos</span>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M7 17L17 7M17 7H7M17 7V17" />
+          </svg>
+        </a>
+        <a href="#contact" class="btn btn-outline" (click)="scrollToSection('#contact')">
+          Contactar
+        </a>
+      </div>
+    </div>
+
+    <div class="hero-visual animate-float">
+      <div class="hero-avatar">
+        <div class="avatar-ring"></div>
+        <div class="avatar-content">
+          <span class="avatar-emoji">👨‍💻</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="scroll-indicator">
+    <span>Scroll</span>
+    <div class="scroll-line"></div>
+  </div>
+</section>
+
+<!-- ========== ABOUT SECTION ========== -->
+<section id="about" class="section about">
+  <div class="container">
+    <div class="about-header">
+      <h2 class="section-title">Sobre Mí</h2>
+      <p class="section-subtitle">Conoce más sobre mi trayectoria y habilidades</p>
+    </div>
+
+    <div class="about-grid">
+      <div class="about-info">
+        <div class="about-card">
+          <div class="about-icon">🎓</div>
+          <h3>Formación</h3>
+          <p class="about-career">{{ career }}</p>
+          <p class="about-university">{{ university }}</p>
+        </div>
+
+        <div class="about-card">
+          <div class="about-icon">💡</div>
+          <h3>Acerca de mí</h3>
+          <p class="about-text">{{ aboutMe }}</p>
+        </div>
+      </div>
+
+      <div class="about-skills">
+        <h3 class="skills-title">Tecnologías</h3>
+        <div class="skills-grid">
+          @for (skill of skills; track skill.name) {
+          <div class="skill-item">
+            <span class="skill-icon">{{ skill.icon }}</span>
+            <span class="skill-name">{{ skill.name }}</span>
+          </div>
+          }
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== PORTFOLIO SECTION ========== -->
+<section id="portfolio" class="section portfolio">
+  <div class="container">
+    <div class="portfolio-header">
+      <h2 class="section-title">Mi Portafolio</h2>
+      <p class="section-subtitle">Una selección de mis proyectos más destacados</p>
+    </div>
+
+    <div class="portfolio-grid">
+      @for (project of projects; track project.id) {
+      <article class="project-card">
+        <div class="project-image">
+          <img [src]="project.image" [alt]="project.title" loading="lazy">
+          <div class="project-overlay">
+            <div class="project-links">
+              @if (project.liveUrl) {
+              <a [href]="project.liveUrl" class="project-link" target="_blank" rel="noopener" title="Ver proyecto">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3" />
+                </svg>
+              </a>
+              }
+              @if (project.repoUrl) {
+              <a [href]="project.repoUrl" class="project-link" target="_blank" rel="noopener" title="Ver código">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path
+                    d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22" />
+                </svg>
+              </a>
+              }
+            </div>
+          </div>
+        </div>
+
+        <div class="project-content">
+          <h3 class="project-title">{{ project.title }}</h3>
+          <p class="project-description">{{ project.description }}</p>
+          <div class="project-tags">
+            @for (tag of project.tags; track tag) {
+            <span class="project-tag">{{ tag }}</span>
+            }
+          </div>
+        </div>
+      </article>
+      }
+    </div>
+  </div>
+</section>
+
+<!-- ========== CONTACT SECTION ========== -->
+<section id="contact" class="section contact">
+  <div class="container">
+    <div class="contact-content">
+      <h2 class="section-title">¿Trabajamos juntos?</h2>
+      <p class="section-subtitle">Estoy disponible para proyectos freelance y oportunidades laborales. ¡No dudes en
+        contactarme!</p>
+
+      <div class="contact-links">
+        <a [href]="'mailto:' + email" class="contact-item">
+          <div class="contact-icon">📧</div>
+          <span>{{ email }}</span>
+        </a>
+
+        <a [href]="linkedin" target="_blank" rel="noopener" class="contact-item">
+          <div class="contact-icon">💼</div>
+          <span>LinkedIn</span>
+        </a>
+
+        <a [href]="github" target="_blank" rel="noopener" class="contact-item">
+          <div class="contact-icon">🐙</div>
+          <span>GitHub</span>
+        </a>
+      </div>
+
+      <a [href]="'mailto:' + email" class="btn btn-primary btn-large">
+        <span>Enviar Email</span>
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M22 2L11 13M22 2L15 22L11 13L2 9L22 2Z" />
+        </svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ========== FOOTER ========== -->
+<footer class="footer">
+  <div class="container footer-content">
+    <p>&copy; {{ currentYear }} {{ name }}. Todos los derechos reservados.</p>
+    <p class="footer-tagline">Hecho con 💙 y Angular</p>
+  </div>
+</footer>
