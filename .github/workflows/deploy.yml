@@ -1,0 +1,25 @@
+name: Deploy to Render
+
+on:
+  push:
+    branches:
+      - qa
+      - main
+
+
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Deploy to QA 
+        if: github.ref == 'refs/heads/qa'
+        run: curl -X POST ${{ secrets.RENDER_DEPLOY_HOOK_QA }}
+
+      - name: Deploy to Production
+        if: github.ref == 'refs/heads/main'
+        run: curl -X POST ${{ secrets.RENDER_DEPLOY_HOOK_PROD }}
