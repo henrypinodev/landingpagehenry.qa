@@ -18,7 +18,7 @@
 }
 
 .nav-logo {
-    font-family: var(--font-display);
+    font-family: var(--bg-secondary);
     font-size: 1.5rem;
     font-weight: 700;
     display: flex;
@@ -26,11 +26,11 @@
 }
 
 .logo-text {
-    color: var(--text-primary);
+    color: var(--bg-secondary);
 }
 
 .logo-dot {
-    color: var(--accent);
+    color: var(--bg-primary);
     font-size: 2rem;
 }
 
@@ -40,7 +40,7 @@
 }
 
 .nav-link {
-    color: var(--text-secondary);
+    color: var(--bg-secondary);
     font-weight: 500;
     transition: var(--transition-smooth);
     position: relative;

@@ -1,24 +1,24 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap');
 
-/* ========== CSS Variables ========== */
+
 :root {
-  --bg-primary: #BF454F;
-  --bg-secondary: #BF454F ;
+  --bg-primary: #F3D798;
+  --bg-secondary: #FFF9EC ;
   --bg-card: #1E293B;
-  --text-primary: #E5E7EB;
-  --text-secondary: #9CA3AF;
-  --accent: #3B82F6;
-  --accent-hover: #60A5FA;
-  --accent-glow: rgba(59, 130, 246, 0.3);
-  --gradient-accent: linear-gradient(135deg, #3B82F6, #8B5CF6);
-  --border-color: rgba(229, 231, 235, 0.1);
+  --text-primary: #2A2118;
+  --text-secondary: #5C4B3A;
+  --accent: #2F3E34;
+  --accent-hover: #243229;
+  --accent-glow: rgba(47, 62, 52, 0.3);
+  --gradient-accent: linear-gradient(135deg, #2F3E34, #3F5246);
+  --border-color: rgba(47, 62, 52, 0.12);
   --shadow-card: 0 10px 40px rgba(0, 0, 0, 0.3);
   --font-primary: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
   --font-display: 'Outfit', sans-serif;
   --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* ========== Reset & Base ========== */
+
 *,
 *::before,
 *::after {
@@ -30,6 +30,14 @@
 html {
   scroll-behavior: smooth;
   font-size: 16px;
+}
+header {
+  background-color:  var(--accent);
+}
+
+nav-link,
+nav-logo {
+  color: var(--bg-secondary);
 }
 
 body {
