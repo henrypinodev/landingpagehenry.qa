@@ -3,7 +3,7 @@
 
 :root {
   --bg-primary: #F3D798;
-  --bg-secondary: #FFF9EC ;
+  --bg-secondary: #FFF9EC;
   --bg-card: #1E293B;
   --text-primary: #2A2118;
   --text-secondary: #5C4B3A;
@@ -16,6 +16,7 @@
   --font-primary: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
   --font-display: 'Outfit', sans-serif;
   --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  --dot-dot: 
 }
 
 
